@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 0;
+}
+
+  
+  /*css banner*/
+
+  .banner-section {
+    position: relative;
+    padding: 220px 0;
+    text-align: center;
+    }
+  
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2a;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+  }
+  
+  .banner-title {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -2px;
+  }
+  
+  .banner-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  
+  .banner-button {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .banner-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .banner-section {
+    background-image: url("bannerhtml.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+
+  .cursor {
+    animation: blink-caret 0.75s step-end infinite;
+    color: white;
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: white; 
+    }
+  }
+  
+
+  /*css sobre mim*/
+
+.about-section {
+  padding: 45px 0;
+  background-color: #000000;
+  color: white;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.about-image img {
+  width: 300px;
+  border-radius: 3%;
+  margin-right: 20px;
+  margin: 20px;
+  transition: transform 0.3s;
+}
+
+.about-image img:hover {
+  transform: scale(1.03); 
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h3 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  letter-spacing: -2px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.about-text p {
+  font-size: 21px;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-right: 55px;
+}
+
+
+  /*css galeria*/
+
+  .gallery-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+  }
+  
+  
+  .gallery-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -2px;
+    margin-left: 75px;
+    font-size: 55px;
+    margin-bottom: 20px;
+  }
+  
+  .gallery-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+  }
+  
+  .gallery-item {
+    flex: 0 0 calc(20% - 20px); /* Define o tamanho de cada item (20% com espaço de 20px entre eles) */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gallery-image {
+    width: 68%;
+    height: auto;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.15);
+  }
+  
+  .gallery-item:hover .gallery-image img {
+    filter: brightness(200%);
+  }
+  
+
+  /*projetos*/
+
+  .projects-section {
+    position: relative;
+    padding: 80px 0;
+    background-image: url("wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .projects-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 55px;
+    letter-spacing: -2px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    color: white;
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+  
+  .project-item {
+    background-color: #f0f0f0;
+    padding: 60px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -2px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 60px;
+    margin-right: 60px;
+    opacity: 0.7;
+    transition: transform 0.3s;
+    border: 15px solid rgb(0, 0, 0);
+  }
+
+  .project-description {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+  }
+  
+  .project-item:hover {
+    transform: scale(1.1); 
+  }
+  
+  .project-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .project-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .project-description {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  
+
+  /*meus serviços*/
+
+  .services-section {
+    padding: 80px 0;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .services-title {
+    font-size: 55px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    letter-spacing: -2px;
+    margin-top: 5px;
+    margin-left: 45px;
+  }
+    
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /*ajusta o espaço entre as caixas*/
+    list-style-type: none; /* Remove os pontos da lista */
+    padding-left: 0; /
+  }
+  
+  .service-item {
+    flex: 1 1 300px;
+    background-color: #000000;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    transition: transform 0.3s; 
+  }
+  
+  
+  .service-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .service-name {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -2;
+    font-weight: bold;
+    margin-bottom: 1px;
+    margin-top: -5px;
+  }
+  
+  .service-description {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .service-item:hover {
+    transform: scale(1.06);
+  }
+  
+  
+  /*css redes sociais*/
+
+  .footer {
+    background-color: #000000;
+    padding: 20px;
+    color: white;
+  }
+  
+  .section-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -2px;
+    margin-left: 46px;
+  }
+  
+  .social-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-icon {
+    margin: 0 5px;
+  }
+  
+  .social-icon img {
+    width: 65px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: -30px;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.15);
+    transition: transform 0.5s;
+  }
+  
+  
