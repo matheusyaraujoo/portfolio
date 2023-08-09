@@ -372,4 +372,8 @@ h1 {
     transition: transform 0.5s;
   }
 
+  .header-title, .about-text, .gallery-title, .projects-title, .services-title, .footer-title {
+    visibility: hidden;
+  }
+  
   

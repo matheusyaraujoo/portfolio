@@ -23,3 +23,28 @@ function blinkCursor() {
 typeText();
 
 
+
+window.sr = ScrollReveal({reset: true})
+ScrollReveal().reveal('.about-text', {
+  delay: 60,
+  }
+)
+ScrollReveal().reveal('.gallery-title', {
+  delay: 60,
+})
+
+ScrollReveal().reveal('.projects-title' , {
+  delay: 60, 
+})
+ScrollReveal().reveal('.services-title' , {
+  delay: 60,
+})
+
+ScrollReveal().reveal('.footer-title' , {
+  delay: 60,
+})
+
+ScrollReveal().reveal('.header-title', {
+  delay: 60,
+  }
+)
