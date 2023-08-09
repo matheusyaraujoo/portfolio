@@ -231,7 +231,7 @@ h1 {
     margin-right: 30px;
     height: 140px;
     opacity: 0.7;
-    transition: transform 0.3s;
+    transition: transform 0.25s;
     border: 15px solid rgb(0, 0, 0);
     margin-bottom: 15px;
   }
@@ -372,8 +372,4 @@ h1 {
     transition: transform 0.5s;
   }
 
-  .about-content, .gallery-title, .gallery-item, .project-item, .projects-title, .services-title, .service-item, .social-icons, .footer-title {
-    visibility: hidden;
-  }
-  
   
