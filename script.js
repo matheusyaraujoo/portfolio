@@ -26,38 +26,38 @@ typeText();
 
 window.sr = ScrollReveal({reset: true})
 ScrollReveal().reveal('.about-text', {
-  delay: 1,
+  delay: 30,
   }
 )
 ScrollReveal().reveal('.gallery-title', {
-  delay: 1,
+  delay: 30,
 })
 
 ScrollReveal().reveal('.projects-title' , {
-  delay: 1, 
+  delay: 30, 
 })
 ScrollReveal().reveal('.services-title' , {
-  delay: 1,
+  delay: 30,
 })
 
 ScrollReveal().reveal('.footer-title' , {
-  delay: 1,
+  delay: 30,
 })
 
 ScrollReveal().reveal('.header-title', {
-  delay: 1,
+  delay: 30,
   }
 )
 ScrollReveal().reveal('.about-image', {
-  delay: 1,
+  delay: 30,
   }
 )
 ScrollReveal().reveal('.gallery-item', {
-  delay: 1,
+  delay: 30,
   }
 )
 ScrollReveal().reveal('.project-item', {
-  delay: 1,
+  delay: 30,
   }
 )
 ScrollReveal().reveal('.service-item', {
@@ -65,7 +65,7 @@ ScrollReveal().reveal('.service-item', {
   }
 )
 ScrollReveal().reveal('.social-icons', {
-  delay: 1,
+  delay: 30,
   }
 )
 
