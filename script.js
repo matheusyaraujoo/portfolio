@@ -49,50 +49,50 @@ typeTitle();
 
 
 
-window.sr = ScrollReveal({reset: true})
-ScrollReveal().reveal('.about-text', {
-  delay: 30,
-  }
-)
-ScrollReveal().reveal('.gallery-title', {
-  delay: 30,
-})
+//window.sr = ScrollReveal({reset: true})
+//ScrollReveal().reveal('.about-text', {
+ // delay: 30,
+//  }
+//)
+//ScrollReveal().reveal('.gallery-title', {
+ // delay: 30,
+//})
 
-ScrollReveal().reveal('.projects-title' , {
-  delay: 30, 
-})
-ScrollReveal().reveal('.services-title' , {
-  delay: 30,
-})
+//ScrollReveal().reveal('.projects-title' , {
+ // delay: 30, 
+//})
+//ScrollReveal().reveal('.services-title' , {
+ // delay: 30,
+//})
 
-ScrollReveal().reveal('.footer-title' , {
-  delay: 30,
-})
+//ScrollReveal().reveal('.footer-title' , {
+//  delay: 30,
+//})
 
-ScrollReveal().reveal('.header-title', {
-  delay: 30,
-  }
-)
-ScrollReveal().reveal('.about-image', {
-  delay: 30,
-  }
-)
-ScrollReveal().reveal('.gallery-item', {
-  delay: 30,
-  }
-)
-ScrollReveal().reveal('.project-item', {
-  delay: 30,
-  }
-)
-ScrollReveal().reveal('.service-item', {
-  delay: 1,
-  }
-)
-ScrollReveal().reveal('.social-icons', {
-  delay: 30,
-  }
-)
+//ScrollReveal().reveal('.header-title', {
+  //delay: 30,
+ // }
+//)
+//ScrollReveal().reveal('.about-image', {
+  //delay: 30,
+ // }
+//)
+//ScrollReveal().reveal('.gallery-item', {
+//  delay: 30,
+ // }
+//)
+//ScrollReveal().reveal('.project-item', {
+ // delay: 30,
+ // }
+//)
+//ScrollReveal().reveal('.service-item', {
+//  delay: 1,
+ // }
+//)
+//ScrollReveal().reveal('.social-icons', {
+//  delay: 30,
+  //}
+//)
 
 
 const scrollLinks = document.querySelectorAll('.scroll-link');
