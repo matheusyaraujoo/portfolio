@@ -379,6 +379,6 @@ h1 {
     transition: transform 0.5s;
   }
 
-  .about-image, .gallery-item, .project-item, .service-item, .social-icons, .header-title, .about-text, .gallery-title, .projects-title, .services-title, .footer-title {
+  /*.about-image, .gallery-item, .project-item, .service-item, .social-icons, .header-title, .about-text, .gallery-title, .projects-title, .services-title, .footer-title {
     visibility: hidden;
-  }
+  }*/
