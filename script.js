@@ -1,26 +1,51 @@
 const textElement = document.getElementById('typing-text');
-const text = "FRONTEND DEVELOPER";
+const text = "FRONT-END DEVELOPER ";
 let index = 0;
 
 function typeText() {
   if (index <= text.length) {
-    textElement.innerHTML = text.substring(0, index) + '<span class="cursor">|</span>';
+    textElement.innerHTML = text.substring(0, index) + '<span class="cursor-text">|</span>';
     index++;
     if (index <= text.length) {
-      setTimeout(typeText, 90); // Ajuste a velocidade da digitação aqui (em milissegundos)
+      setTimeout(typeText, 90); 
     } else {
-      setTimeout(blinkCursor, 500); // Tempo após a digitação completa antes de começar a piscar
+      setTimeout(blinkTextCursor, 500); 
     }
   }
 }
 
-function blinkCursor() {
-  const cursorElement = document.querySelector('.cursor');
-  cursorElement.style.opacity = cursorElement.style.opacity === '0' ? '1' : '0';
-  setTimeout(blinkCursor, 500); // Ajuste o tempo do piscar do cursor aqui (em milissegundos)
+function blinkTextCursor() {
+  const cursorTextElement = document.querySelector('.cursor-text');
+  cursorTextElement.style.opacity = cursorTextElement.style.opacity === '0' ? '1' : '0';
+  setTimeout(blinkTextCursor, 500); 
 }
 
 typeText();
+
+const titleElement = document.getElementById('typing-title');
+const titleText = "Olá! Eu sou o Matheus Araujo 👋🏼";
+let titleIndex = 0;
+
+function typeTitle() {
+  if (titleIndex <= titleText.length) {
+    titleElement.innerHTML = titleText.substring(0, titleIndex) + '<span class="cursor-title">|</span>';
+    titleIndex++;
+    if (titleIndex <= titleText.length) {
+      setTimeout(typeTitle, 48); 
+    } else {
+      setTimeout(blinkTitleCursor, 624); 
+    }
+  }
+}
+
+function blinkTitleCursor() {
+  const cursorTitleElement = document.querySelector('.cursor-title');
+  cursorTitleElement.style.opacity = cursorTitleElement.style.opacity === '0' ? '1' : '0';
+  setTimeout(blinkTitleCursor, 500);
+}
+
+typeTitle();
+
 
 
 
@@ -68,4 +93,21 @@ ScrollReveal().reveal('.social-icons', {
   delay: 30,
   }
 )
+
+
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+scrollLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault(); 
+
+    const targetId = link.getAttribute('href'); 
+    const targetSection = document.querySelector(targetId);
+
+    targetSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
 
