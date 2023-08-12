@@ -1,5 +1,5 @@
 const textElement = document.getElementById('typing-text');
-const text = "FRONT-END DEVELOPER ";
+const text = "FULL STACK DEVELOPER ";
 let index = 0;
 
 function typeText() {
