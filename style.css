@@ -162,8 +162,6 @@ h1 {
 
   .gallery-section {
     display: flex;
-    justify-content: center;
-    padding: -100px;
     margin-bottom: 30px;
     margin-top: -20px;
   }
@@ -179,15 +177,18 @@ h1 {
   
   .gallery-grid {
     display: flex;
-    gap: 10px;
     margin-top: 10px;
     margin-left: 10px;
   }
   
   .gallery-item {
-    flex: 0 0 calc(20% - 20px); /* Define o tamanho de cada item (20% com espaço de 20px entre eles) */
+    flex: 0 0 calc(21% - 43px); /* Define o tamanho de cada item (20% com espaço de 20px entre eles) */
     position: relative;
     overflow: hidden;
+    margin: -35px;
+    margin-top: -3px;
+    margin-left: -10px;
+    margin-bottom: -40px;
   }
   
   .gallery-image {
@@ -198,10 +199,6 @@ h1 {
   
   .gallery-item:hover .gallery-image {
     transform: scale(1.15);
-  }
-  
-  .gallery-item:hover .gallery-image img {
-    filter: brightness(200%);
   }
   
 
