@@ -111,3 +111,10 @@ scrollLinks.forEach(link => {
 });
 
 
+function zoomIn(element) {
+  element.style.fontSize = "26px"; /* tamanho aumentado */
+}
+
+function zoomOut(element) {
+  element.style.fontSize = "23px"; /* tamanho inicial */
+}
