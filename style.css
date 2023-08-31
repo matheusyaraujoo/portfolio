@@ -226,7 +226,6 @@ h1 {
     right: 100%;
     left: 0;
     background: rgb(20, 20, 20);
-    opacity: 0;
     z-index: -1;
     transition: all 0.7s;
   }
@@ -251,11 +250,11 @@ h1 {
   
   .projects-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 55px;
+    font-size: 42px;
     letter-spacing: -2px;
     margin-left: 40px;
     margin-bottom: 40px;
-    margin-top: -10px;
+    margin-top: -17px;
     color: white;
   }
   
@@ -341,10 +340,11 @@ h1 {
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 15px;
+    margin-top: -12px;
   }
   
   .services-title {
-    font-size: 55px;
+    font-size: 42px;
     font-family: 'Poppins', sans-serif;
     letter-spacing: -3px;
     margin-top: 5px;
@@ -413,6 +413,7 @@ h1 {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 35px;
+    margin-top: 20px;
     font-family: 'Poppins', sans-serif;
     letter-spacing: -2px;
     margin-left: 25px;
@@ -493,6 +494,7 @@ h1 {
   .card4 {
     width: 100px;
     height: 100px;
+    margin-left: -8px;
     outline: none;
     border: none;
     background: white;
