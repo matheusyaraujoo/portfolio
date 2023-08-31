@@ -204,6 +204,47 @@ h1 {
 
   /*projetos*/
 
+  .projects-button {
+    background: #fff;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    width: 120px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: skew(-21deg);
+  }
+  
+  span {
+    display: inline-block;
+    transform: skew(21deg);
+  }
+  
+  .projects-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.7s;
+  }
+  
+  .projects-button:hover {
+    color: #fff;
+  }
+  
+  .projects-button:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+
   .projects-section {
     position: relative;
     padding: 50px 0;
@@ -379,31 +420,133 @@ h1 {
     font-family: 'Poppins', sans-serif;
     letter-spacing: -2px;
     margin-left: 25px;
-  }
-  
-  .social-icons {
     display: flex;
-    align-items: center;
-    margin-left: -15px;
   }
   
-  .social-icon {
-    margin: 0 5px;
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  margin-left: 30px;    
   }
   
-  .social-icon img {
-    width: 80px;
-    height: 58px;
-    margin-left: 20px;
-    margin-right: -30px;
-    margin-bottom: 30px;
+  .up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
   }
   
-  .social-icon:hover {
-    transform: scale(1.15);
-    transition: transform 0.5s;
+  .down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
   }
-
-  /*.about-image, .gallery-item, .project-item, .service-item, .social-icons, .header-title, .about-text, .gallery-title, .projects-title, .services-title, .footer-title {
-    visibility: hidden;
-  }*/
+  
+  .card1 {
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .instagram {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #cc39a4;
+  }
+  
+  .card2 {
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .whatsapp {
+    margin-top: 29px;
+    margin-left: -4px;
+    width: 40px;
+    height: 80px;
+    fill: #03f423;
+  }
+  
+  .card3 {
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .github {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+  }
+  
+  .card4 {
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .discord {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+  }
+  
+  .card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
+  }
+  
+  .card1:hover .instagram {
+    fill: white;
+  }
+  
+  .card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #00ff40;
+  }
+  
+  .card2:hover .whatsapp {
+    fill: white;
+  }
+  
+  .card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: rgb(43, 41, 41);
+  }
+  
+  .card3:hover .github {
+    fill: white;
+  }
+  
+  .card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+  }
+  
+  .card4:hover .discord {
+    fill: white;
+  }
