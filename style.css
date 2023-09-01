@@ -250,7 +250,7 @@ h1 {
     transform: skew(-21deg);
   }
   
-  span {
+  .span-conferir {
     display: inline-block;
     transform: skew(21deg);
   }
