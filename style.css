@@ -305,8 +305,8 @@ h1 {
 
   .project-item1 {
     background: url(./listadetarefas.jpg);
-    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
-    background-position: center; /* Centraliza a imagem horizontalmente e verticalmente */
+    background-size: cover;
+    background-position: center;
     padding: 60px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -316,12 +316,20 @@ h1 {
     margin-left: 30px;
     margin-right: 30px;
     height: 140px;
-    opacity: 0.7;
-    transition: transform 0.25s;
+    transition: transform 0.25s, opacity 0.3s ease; /* Adicionamos a transição de opacidade aqui */
     border: 15px solid rgb(0, 0, 0);
     margin-bottom: 15px;
     color: white;
   }
+  
+  .footer-projetos {
+    font-weight: 600;
+    letter-spacing: 0px;
+    margin-top: 15px;
+    transition: opacity 0.8s ease; /* Adicionamos a transição de opacidade aqui */
+  }
+
+
   
   .project-item {
     background-color: #f0f0f0;
