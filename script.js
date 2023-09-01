@@ -71,20 +71,3 @@ function zoomIn(element) {
 function zoomOut(element) {
   element.style.fontSize = "23px"; /* tamanho inicial */
 }
-
-
-  // Captura o elemento .project-item1
-  const projectItem1 = document.querySelector('.project-item1');
-
-  // Captura o elemento .footer-projetos
-  const footerProjetos = projectItem1.querySelector('.footer-projetos');
-
-  // Adiciona um ouvinte de evento para o mouse entrar (passar por cima)
-  projectItem1.addEventListener('mouseenter', () => {
-    footerProjetos.style.display = 'block'; // Exibe o .footer-projetos
-  });
-
-  // Adiciona um ouvinte de evento para o mouse sair (sair de cima)
-  projectItem1.addEventListener('mouseleave', () => {
-    footerProjetos.style.display = 'none'; // Oculta o .footer-projetos
-  });
