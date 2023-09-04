@@ -65,6 +65,7 @@ h1 {
   
   .banner-button {
     height: 50px;
+    cursor: pointer;
     margin: 5px;
     width: 170px;
     background: #333;
