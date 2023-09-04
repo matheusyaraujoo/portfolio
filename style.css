@@ -222,7 +222,7 @@ h1 {
     margin: -35px;
     margin-top: -3px;
     margin-left: -10px;
-    margin-bottom: -40px;
+    margin-bottom: 0px;
   }
   
   .gallery-image {
