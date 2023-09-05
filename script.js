@@ -65,9 +65,9 @@ scrollLinks.forEach(link => {
 
 
 function zoomIn(element) {
-  element.style.fontSize = "26px"; /* tamanho aumentado */
+  element.style.fontSize = "26px"; 
 }
 
 function zoomOut(element) {
-  element.style.fontSize = "23px"; /* tamanho inicial */
+  element.style.fontSize = "23px"; 
 }

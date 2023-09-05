@@ -187,7 +187,7 @@ h1 {
 }
 
 .emoji {
-  transition: font-size 0.1s ease-in-out; /* animação de transição */
+  transition: font-size 0.1s ease-in-out;
 }
 
 .about-text h3 {
@@ -234,7 +234,7 @@ h1 {
   }
   
   .gallery-item {
-    flex: 0 0 calc(21% - 43px); /* Define o tamanho de cada item (20% com espaço de 20px entre eles) */
+    flex: 0 0 calc(21% - 43px);
     position: relative;
     overflow: hidden;
     margin: -35px;
@@ -335,7 +335,7 @@ h1 {
     margin-left: 30px;
     margin-right: 30px;
     height: 140px;
-    transition: transform 0.25s, font-size 0.25s; /* Adicionei a transição para font-size */
+    transition: transform 0.25s, font-size 0.25s;
     border: 15px solid rgb(0, 0, 0);
     margin-bottom: 15px;
     color: white;
@@ -351,12 +351,12 @@ h1 {
 
   .project-item1:hover {
     opacity: 1;
-    transform: scale(1.05); /* Aumenta um pouco o tamanho quando o mouse passa por cima */
+    transform: scale(1.05);
   }
 
 .project-item1:hover .footer-projetos {
   opacity: 1;
-  font-size: 10px; /* Aumenta o tamanho da fonte quando o mouse passa por cima */
+  font-size: 10px;
 }
 
 
@@ -434,8 +434,8 @@ h1 {
   .services-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /*ajusta o espaço entre as caixas*/
-    list-style-type: none; /* Remove os pontos da lista */
+    gap: 20px;
+    list-style-type: none;
     padding-left: 0; /
   }
   
