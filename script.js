@@ -74,7 +74,7 @@ function zoomOut(element) {
 
 // --- LÓGICA DO CHATBOT (INTEGRAÇÃO PYTHON) ---
 
-const API_URL = 'http://127.0.0.1:5000/chat_web';
+const API_URL = 'https://portfolio-eiau.onrender.com/chat_web';
 
 function toggleChat() {
     const container = document.getElementById('chatbot-container');
