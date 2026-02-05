@@ -37,7 +37,7 @@ class SalesforceAgent:
         - Pergunte qual solução o cliente busca: 
           a) Landing Page de Conversão
           b) Chatbot IA + Salesforce 
-          c) Sistemas de soluções personalizadas
+          c) Outros
         
         PASSO 2: INVESTIGAÇÃO
         - Pergunte o motivo. (Ex: "Entendido. O que te motivou a buscar essa solução hoje? Algum gargalo no processo atual?")

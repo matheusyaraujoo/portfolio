@@ -127,9 +127,9 @@ async function sendMessage() {
         removeMessage(loadingId);
         
         if (message.toLowerCase().includes('olá') || message.toLowerCase().includes('oi')) {
-             appendMessage("O servidor parece estar offline. Mas prazer, sou o Matheus! Me chame no WhatsApp.", 'bot-message');
+             appendMessage("O servidor parece estar offline. Me chama novamente mais tarde!", 'bot-message');
         } else {
-             appendMessage("⚠️ Erro de conexão. Verifique se o 'app.py' está rodando.", 'bot-message');
+             appendMessage("O servidor parece estar offline. Me chama novamente mais tarde!", 'bot-message');
         }
     }
 }
