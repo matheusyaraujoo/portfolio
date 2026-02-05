@@ -136,7 +136,7 @@
       <li class="service-item">
         <img src="1segurança.png" alt="Imagem 5" class="service-image">
         <h3 class="service-name">ChatBots</h3>
-        <p class="service-description" style="font-size: 16px;">Bot via WhatsApp/Site que facilita atendimento, agendamento, pré venda para qualificação de leads, etc. O chatbot conversa diretamente com a Salesforce, criando leads, abrindo chamados e atualizando dados automaticamente, deixando tudo centralizado em um só lugar.</p>
+        <p class="service-description" style="font-size: 16px;">Chatbot que facilita atendimento, agendamento, pré venda para qualificação de leads, etc. O chatbot conversa diretamente com a Salesforce, criando leads, abrindo chamados e atualizando dados automaticamente, deixando tudo centralizado em um só lugar.</p>
       </li>
       <!--
       <li class="service-item">
@@ -183,6 +183,36 @@
       </div>
   </footer>
   
+  <div id="chatbot-container" class="chatbot-closed">
+  <button id="chatbot-toggle" onclick="toggleChat()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <div class="chat-window">
+    <div class="chat-header">
+      <div class="header-info">
+        <span class="status-dot"></span>
+        <h3>Assistente Virtual</h3>
+      </div>
+      <button class="close-btn" onclick="toggleChat()">×</button>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        Olá! Sou a IA do Matheus. Posso te ajudar com Landing Pages, Chatbots ou Sistemas?
+      </div>
+    </div>
+    
+    <div class="chat-input-area">
+      <input type="text" id="user-input" placeholder="Digite sua dúvida..." onkeypress="handleKeyPress(event)">
+      <button onclick="sendMessage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </div>
+  </div>
+</div>
   
 
   <script src="script.js"></script>

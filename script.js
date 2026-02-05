@@ -71,3 +71,85 @@ function zoomIn(element) {
 function zoomOut(element) {
   element.style.fontSize = "23px"; 
 }
+
+// --- LÓGICA DO CHATBOT (INTEGRAÇÃO PYTHON) ---
+
+const API_URL = 'http://127.0.0.1:5000/chat_web';
+
+function toggleChat() {
+    const container = document.getElementById('chatbot-container');
+    container.classList.toggle('chatbot-open');
+    
+    if (container.classList.contains('chatbot-open')) {
+        setTimeout(() => document.getElementById('user-input').focus(), 300);
+    }
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+async function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    
+    if (message === "") return;
+
+    appendMessage(message, 'user-message');
+    input.value = '';
+
+    const loadingId = 'loading-' + Date.now();
+    appendMessage("Digitando...", 'bot-message', loadingId);
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message })
+        });
+
+        removeMessage(loadingId);
+
+        if (!response.ok) {
+            throw new Error('Erro na resposta da rede');
+        }
+
+        const data = await response.json();
+
+        appendMessage(data.response, 'bot-message');
+
+    } catch (error) {
+        console.error('Erro:', error);
+        removeMessage(loadingId);
+        
+        if (message.toLowerCase().includes('olá') || message.toLowerCase().includes('oi')) {
+             appendMessage("O servidor parece estar offline. Mas prazer, sou o Matheus! Me chame no WhatsApp.", 'bot-message');
+        } else {
+             appendMessage("⚠️ Erro de conexão. Verifique se o 'app.py' está rodando.", 'bot-message');
+        }
+    }
+}
+
+function appendMessage(text, className, id = null) {
+    const chatBox = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    
+    messageDiv.classList.add('message', className);
+    if (id) messageDiv.id = id;
+    
+    messageDiv.innerHTML = text.replace(/\n/g, '<br>'); 
+    
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function removeMessage(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.remove();
+    }
+}
