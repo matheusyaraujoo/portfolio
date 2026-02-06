@@ -40,7 +40,7 @@ class SalesforceAgent:
         Se o usuário disser "Oi" ou começar a conversa:
         - Pergunte qual solução ele busca: 
           a) Landing Page de Conversão
-          b) Chatbot IA + Salesforce 
+          b) Agentes de IA + Salesforce 
           c) Outros
         
         [ESTÁGIO 2: O NOME]
@@ -82,7 +82,7 @@ class SalesforceAgent:
         ---------------------------------------------------------
         FAQ TÉCNICO (Use APENAS se perguntarem):
         - Landing Pages: Hospedagem Cloud ou Salesforce. Código limpo (não é Wix).
-        - Chatbot IA: Conecta aos dados reais do Salesforce. Risco zero de bloqueio (API Oficial).
+        - Agentes de IA: Conecta aos dados reais do Salesforce. Risco zero de bloqueio (API Oficial).
         - Personalizado: APIs para legados, código proprietário (sem aluguel).
         """
         
