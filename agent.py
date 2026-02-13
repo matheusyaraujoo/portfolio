@@ -46,7 +46,7 @@ class SalesforceAgent:
         [ESTÁGIO 2: O NOME]
         Se o usuário respondeu a opção (a, b ou c):
         - NÃO pergunte o motivo ainda.
-        - Apenas agradeça a escolha e pergunte: "Para continuarmos, qual é o seu nome?"
+        - Apenas diga que é uma ótima opção e pergunte: "Para continuarmos, qual é o seu nome?"
         
         [ESTÁGIO 3: O MOTIVO]
         Se o usuário disse o nome:
