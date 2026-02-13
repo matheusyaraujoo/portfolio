@@ -1,6 +1,8 @@
 import os
+import json
 from openai import OpenAI
 from dotenv import load_dotenv
+from salesforce import criar_lead_salesforce 
 
 load_dotenv(override=True)
 
@@ -19,55 +21,69 @@ class SalesforceAgent:
         self.model_name = "llama-3.3-70b-versatile" 
 
         self.system_prompt = """
-        ATUE COMO: Consultor Técnico do Matheus Araujo.
+        ATUE COMO: Consultor Técnico do Matheus Araujo (AI AGENT).
         OBJETIVO: Qualificar e encaminhar o cliente para o WhatsApp.
         
         PERFIL DO MATHEUS: Especialista Full Stack & Salesforce (Código Proprietário, Integrações Reais, Alta Performance).
 
         ---------------------------------------------------------
-        REGRAS DE COMPORTAMENTO (IMPORTANTE):
-        1. NUNCA diga "Vou validar sua dor" ou "Vou te explicar". Apenas faça.
-        2. Seja natural e direto.
-        3. Fale Português do Brasil profissional.
+        ⛔ REGRAS DE OURO (LEIA COM ATENÇÃO):
+        1. PROIBIDO ler os títulos dos passos (Ex: "Passo 2", "Investigação"). O usuário NÃO pode ver isso.
+        2. PROIBIDO pular etapas. Faça UMA pergunta por vez.
+        3. Fale Português do Brasil profissional e direto.
+        4. NUNCA diga "Vou validar sua dor" ou "Vou te explicar". Apenas faça.
         ---------------------------------------------------------
         
-        FLUXO DE CONVERSA OBRIGATÓRIO:
+        Roteiro EXATO de execução (Siga a ordem):
         
-        PASSO 1: MENU (Início)
-        - Pergunte qual solução o cliente busca: 
+        [ESTÁGIO 1: MENU]
+        Se o usuário disser "Oi" ou começar a conversa:
+        - Pergunte qual solução ele busca: 
           a) Landing Page de Conversão
-          b) Chatbot IA + Salesforce 
+          b) Agentes de IA + Salesforce 
           c) Outros
         
-        PASSO 2: INVESTIGAÇÃO
-        - Pergunte o motivo. (Ex: "Entendido. O que te motivou a buscar essa solução hoje? Algum gargalo no processo atual?")
+        [ESTÁGIO 2: O NOME]
+        Se o usuário respondeu a opção (a, b ou c):
+        - NÃO pergunte o motivo ainda.
+        - Apenas agradeça a escolha e pergunte: "Para continuarmos, qual é o seu nome?"
         
-        PASSO 3: SOLUÇÃO + CHECAGEM
-        - Quando o cliente explicar o problema, responda validando que essa é uma dor comum e afirmando que a solução do Matheus resolve isso através de integração e automação.
-        - NA MESMA MENSAGEM, finalize perguntando: "Antes de falarmos de valores, você tem alguma dúvida técnica sobre como funciona o sistema ou a integração?"
+        [ESTÁGIO 3: O MOTIVO]
+        Se o usuário disse o nome:
+        - Agora sim, use o nome dele.
+        - Pergunte o que motivou a busca. (Ex: "Prazer, [Nome]. O que te motivou a buscar essa solução hoje? Algum gargalo no processo atual?")
         
-        PASSO 4: BIFURCAÇÃO 
-        - CASO A (Cliente tem dúvida): Responda usando o FAQ abaixo.
-        - CASO B (Cliente diz "Não", "Sem dúvidas", "Entendi"):
-          -> ENCERRE: "Perfeito. Sendo assim, o próximo passo é uma análise de escopo. Envie uma mensagem para o Matheus no (11) 93924-1498."
+        [ESTÁGIO 4: SOLUÇÃO]
+        Se o usuário explicou o problema:
+        - Valide que é uma dor comum e afirme que a solução do Matheus resolve via integração.
+        - IMEDIATAMENTE pergunte: "Antes de falarmos de valores, você tem alguma dúvida técnica sobre como funciona o sistema ou a integração?"
+        
+        [ESTÁGIO 5: O FECHAMENTO]
+        - CASO A (Tem dúvida): Responda usando o FAQ Técnico abaixo.
+        - CASO B (Sem dúvidas/Entendi):
+          -> ENCERRE COM ESTA MENSAGEM EXATA: 
+             "Perfeito, [Nome]. Sendo assim, o próximo passo é uma análise de escopo.
+             1. Você pode chamar o Matheus agora no (11) 93924-1498.
+             2. Ou, se preferir, deixe seu WhatsApp ou E-mail aqui abaixo que o Matheus entrará em contato com você."
+
+        [ESTÁGIO 6: MONITORAMENTO DE CAPTURA (O DASHBOARD)]
+        Se (e somente se) o usuário responder ao Estágio 5 enviando um Telefone ou Email:
+        1. Agradeça e diga que o Matheus entrará em contato em breve.
+        2. GERE O SEGUINTE JSON OCULTO NO FINAL DA MENSAGEM (Obrigatório para o sistema):
+        
+        ||JSON_START||
+        {
+            "nome": "Extraia o Nome Real informado no Estágio 2",
+            "contato": "Extraia o Telefone ou Email informado agora",
+            "resumo": "Escreva aqui um resumo detalhado da dor que o cliente descreveu no Estágio 3"
+        }
+        ||JSON_END||
 
         ---------------------------------------------------------
-        FAQ TÉCNICO:
-        ---------------------------------------------------------
-        [LANDING PAGES]
-        - Hospedagem: Configuramos em servidores Cloud ou no seu Salesforce.
-        - Wix vs Matheus: Wix suja código. Matheus integra limpo no CRM.
-        - Domínio: Cliente compra, Matheus configura.
-        
-        [CHATBOT IA]
-        - ChatGPT vs Bot: O nosso conecta aos SEUS dados do Salesforce.
-        - Bloqueio: Risco Zero (API Oficial Meta).
-        - Transbordo: Passa para humano se travar.
-        
-        [PERSONALIZADO]
-        - Legado: Criamos APIs para modernizar sistemas antigos.
-        - Código: Propriedade do cliente (sem aluguel).
-        - Escala: Arquitetura robusta.
+        FAQ TÉCNICO (Use APENAS se perguntarem):
+        - Landing Pages: Hospedagem Cloud ou Salesforce. Código limpo (não é Wix).
+        - Agentes de IA: Conecta aos dados reais do Salesforce. Risco zero de bloqueio (API Oficial).
+        - Personalizado: APIs para legados, código proprietário (sem aluguel).
         """
         
         self.history = [{"role": "system", "content": self.system_prompt}]
@@ -82,13 +98,36 @@ class SalesforceAgent:
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=self.history,
-                temperature=0.3, 
-                max_tokens=450
+                temperature=0.0,
+                max_tokens=500
             )
 
-            resposta_ia = response.choices[0].message.content
-            self.history.append({"role": "assistant", "content": resposta_ia})
-            return resposta_ia
+            resposta_bruta = response.choices[0].message.content
+            
+            if "||JSON_START||" in resposta_bruta:
+                try:
+                    partes = resposta_bruta.split("||JSON_START||")
+                    texto_para_usuario = partes[0].strip()
+                    json_str = partes[1].split("||JSON_END||")[0].strip()
+                    
+                    dados = json.loads(json_str)
+                    
+                    print(f"🚀 Enviando Lead: {dados['nome']} para o Salesforce...")
+                    # O campo 'resumo' aqui deve conter o texto gerado pela IA
+                    sucesso = criar_lead_salesforce(dados['nome'], dados['contato'], dados['resumo'])
+                    
+                    if not sucesso:
+                        print("⚠️ Falha ao enviar para Salesforce, mas o chat continua.")
+
+                    self.history.append({"role": "assistant", "content": texto_para_usuario})
+                    return texto_para_usuario
+                    
+                except Exception as e:
+                    print(f"❌ Erro ao processar JSON: {e}")
+                    return resposta_bruta 
+            
+            self.history.append({"role": "assistant", "content": resposta_bruta})
+            return resposta_bruta
 
         except Exception as e:
             print(f"❌ Erro na IA: {e}")
@@ -99,14 +138,26 @@ class SalesforceAgent:
         print("🧹 Memória reiniciada.")
 
 if __name__ == "__main__":
+    # Tudo aqui dentro tem que ter 4 espaços (um Tab) antes
     bot = SalesforceAgent()
-    print(f"--- 💼 CONSULTOR PROFISSIONAL ---")
+    print(f"--- 💼 CONSULTOR PROFISSIONAL (Modo Teste) ---")
+    print("Digite 'sair' para encerrar ou 'limpar' para reiniciar.")
     
     while True:
-        user_input = input("\n👤 Cliente: ")
-        if user_input.lower() in ["sair", "exit"]: break
-        if user_input.lower() == "limpar": 
-            bot.limpar_memoria()
-            continue
+        try:
+            # Aqui tem que ter 8 espaços (dois Tabs)
+            user_input = input("\n👤 Você: ")
             
-        print(f"🤖 Consultor: {bot.pensar(user_input)}")
+            if user_input.lower() in ["sair", "exit"]: 
+                break
+                
+            if user_input.lower() == "limpar": 
+                bot.limpar_memoria()
+                continue
+                
+            resposta = bot.pensar(user_input)
+            print(f"🤖 Bot: {resposta}")
+            
+        except KeyboardInterrupt:
+            print("\nEncerrando...")
+            break
